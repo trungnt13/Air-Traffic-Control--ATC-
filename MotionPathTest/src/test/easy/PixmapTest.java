@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Pixmap.Blending;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
@@ -24,11 +25,16 @@ public class PixmapTest implements ApplicationListener,InputProcessor{
 	int cur;
 	int count=0;
 	float Timer=0;
+	
+	boolean draw = true;
 	@Override
 	public void create() {
-		// TODO Auto-generated method stub
+
 		batch = new SpriteBatch();
+		
 		pixmap = new Pixmap(1024, 512, Pixmap.Format.RGBA8888);
+		pixmap.setBlending(Blending.None);
+		
 		texture = new Texture(pixmap);
 		plane = new Texture(Gdx.files.internal("data/badlogicsmall.jpg"));
 		cur = 0;
@@ -52,8 +58,10 @@ public class PixmapTest implements ApplicationListener,InputProcessor{
 	public void render() {
 		Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		
 		batch.begin();
-		batch.draw(texture,0,0);
+		if(draw)
+			batch.draw(texture,0,0);
 		batch.draw(plane,trace.get(cur).x-plane.getWidth()/2,
 						 Gdx.graphics.getHeight()-trace.get(cur).y-plane.getHeight()/2);
 		batch.end();
@@ -68,7 +76,7 @@ public class PixmapTest implements ApplicationListener,InputProcessor{
 				cur++;
 			}
 			Timer = 1;
-		
+			pixmap.setColor(Color.CLEAR);
 			pixmap.drawLine((int)trace.get(cur-1).x,(int)trace.get(cur-1).y,(int)trace.get(cur).x,(int)trace.get(cur).y);
 			texture.draw(pixmap, 0, 0);
 			texture.bind();
@@ -120,13 +128,13 @@ public class PixmapTest implements ApplicationListener,InputProcessor{
 	@Override
 	public boolean touchUp(int x, int y, int pointer, int button) {
 		Timer =1;
-		pixmap.setColor(Color.WHITE);
-		Gdx.app.log("Touch dragged", " ////////////" + trace.size()+ " " + count);
+//		draw = false;
 		return true;
 	}
 
 	@Override
 	public boolean touchDragged(int x, int y, int pointer) {
+		draw = true;
 		count++;
 		if(calModule(test, new Vector2(x, y)) > 5){
 			Vector2 v1 = calMiddle(test, new Vector2(x, y));
@@ -138,10 +146,9 @@ public class PixmapTest implements ApplicationListener,InputProcessor{
 		
 		pixmap.setColor(Color.RED);
 		pixmap.drawLine((int)test.x, (int)test.y, x, y);
+		
 		texture.draw(pixmap, 0, 0);
-	
-		Gdx.app.log("Trace", ""+trace.get(trace.size()-1).x + " " + trace.get(trace.size()-1).y);
-		Gdx.app.log("Touch dragged", "" + x + " " + y);
+
 		test.set(x, y);
 		return false;
 	}
