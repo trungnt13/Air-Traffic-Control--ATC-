@@ -1,0 +1,93 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGBUS (0x7) at pc=0x00007f2ec583c1d8, pid=8165, tid=139838862518016
+#
+# JRE version: 6.0_26-b03
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (20.1-b02 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# 
+[error occurred during error reporting (printing problematic frame), id 0x7]
+
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f2ec826c800):  JavaThread "AWT-EventQueue-0" [_thread_in_native, id=8186, stack(0x00007f2ec5a9e000,0x00007f2ec5b9f000)]
+
+siginfo:si_signo=SIGBUS: si_errno=0, si_code=2 (BUS_ADRERR), si_addr=0x00007f2ec5a9c538
+
+Registers:
+RAX=0x00000000ed0b3188, RBX=0x00007f2ec826c9d0, RCX=0x00007f2ec8293870, RDX=0x0000000000000050
+RSP=0x00007f2ec5b9c6a8, RBP=0x00007f2ec5b9c790, RSI=0x00000000ed0b3188, RDI=0x0000000040995840
+R8 =0x00007f2ed22c1fe8, R9 =0x00007f2ed22c5e58, R10=0x00007f2ec8293c58, R11=0x00007f2ec82938b8
+R12=0x00000000ed0b3188, R13=0x0000000000000050, R14=0x0000000040995840, R15=0x0000000000000000
+RIP=0x00007f2ec583c1d8, EFLAGS=0x0000000000010202, CSGSFS=0x0000000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f2ec5b9c6a8)
+0x00007f2ec5b9c6a8:   00007f2ec5875427 0000000000000004
+0x00007f2ec5b9c6b8:   00000000c1033b70 00007f2ec5b9c758
+0x00007f2ec5b9c6c8:   0000000000000000 00000000c1033b70
+0x00007f2ec5b9c6d8:   00007f2ec5b9c790 00007f2ec826c800
+0x00007f2ec5b9c6e8:   00007f2ecd71dd6e 0000000000000000
+0x00007f2ec5b9c6f8:   0000000040638950 0000000000000de1
+0x00007f2ec5b9c708:   00000000409aa0e0 0000000040643e38
+0x00007f2ec5b9c718:   00007f2ec5b9c718 0000000000000000
+0x00007f2ec5b9c728:   00007f2ec5b9c790 00000000c10346b8
+0x00007f2ec5b9c738:   0000000000000000 00000000c1033b70
+0x00007f2ec5b9c748:   0000000000000000 00007f2ec5b9c778
+0x00007f2ec5b9c758:   00007f2ec5b9c7d8 00007f2ecd712a82
+0x00007f2ec5b9c768:   00000000c1034650 00007f2ecd71af58
+0x00007f2ec5b9c778:   0000000000000000 0000000000000014
+0x00007f2ec5b9c788:   00000000ed0af6b0 00000000ed0b3178
+0x00007f2ec5b9c798:   00007f2ec5b9c798 00000000c1031e5c
+0x00007f2ec5b9c7a8:   00007f2ec5b9c800 00000000c10346b8
+0x00007f2ec5b9c7b8:   0000000000000000 00000000c1031ec0
+0x00007f2ec5b9c7c8:   00007f2ec5b9c778 00007f2ec5b9c7e8
+0x00007f2ec5b9c7d8:   00007f2ec5b9c848 00007f2ecd712a82
+0x00007f2ec5b9c7e8:   0000000000000000 0000000000000014
+0x00007f2ec5b9c7f8:   00000000ed0af6b0 00000000ed0b3178
+0x00007f2ec5b9c808:   00007f2ec5b9c808 00000000c102e5f7
+0x00007f2ec5b9c818:   00007f2ec5b9c870 00000000c102f3f0
+0x00007f2ec5b9c828:   0000000000000000 00000000c102e648
+0x00007f2ec5b9c838:   00007f2ec5b9c7e8 00007f2ec5b9c858
+0x00007f2ec5b9c848:   00007f2ec5b9c8b8 00007f2ecd712f5c
+0x00007f2ec5b9c858:   0000000000000014 0000000000000000
+0x00007f2ec5b9c868:   00000000ed0b3178 00000000ed0a3b18
+0x00007f2ec5b9c878:   00007f2ec5b9c878 00000000c10263c7
+0x00007f2ec5b9c888:   00007f2ec5b9c8e0 00000000c102ada8
+0x00007f2ec5b9c898:   0000000000000000 00000000c1026408 
+
+Instructions: (pc=0x00007f2ec583c1d8)
+0x00007f2ec583c1b8:   ff 25 6a 03 26 00 68 a5 00 00 00 e9 90 f5 ff ff
+0x00007f2ec583c1c8:   ff 25 62 03 26 00 68 a6 00 00 00 e9 80 f5 ff ff
+0x00007f2ec583c1d8:   ff 25 5a 03 26 00 68 a7 00 00 00 e9 70 f5 ff ff
+0x00007f2ec583c1e8:   ff 25 52 03 26 00 68 a8 00 00 00 e9 60 f5 ff ff 
+
+Register to memory mapping:
+
+RAX=0x00000000ed0b3188 is an unknown value
+RBX=0x00007f2ec826c9d0 is an unknown value
+RCX=0x00007f2ec8293870 is an unknown value
+RDX=0x0000000000000050 is an unknown value
+RSP=0x00007f2ec5b9c6a8 is pointing into the stack for thread: 0x00007f2ec826c800
+RBP=0x00007f2ec5b9c790 is pointing into the stack for thread: 0x00007f2ec826c800
+RSI=0x00000000ed0b3188 is an unknown value
+RDI=0x0000000040995840 is an unknown value
+R8 =0x00007f2ed22c1fe8: <offset 0xa99fe8> in /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/amd64/server/libjvm.so at 0x00007f2ed1828000
+R9 =0x00007f2ed22c5e58: <offset 0xa9de58> in /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/amd64/server/libjvm.so at 0x00007f2ed1828000
+R10=0x00007f2ec8293c58 is an unknown value
+R11=0x00007f2ec82938b8 is an unknown value
+R12=0x00000000ed0b3188 is an unknown value
+R13=0x0000000000000050 is an unknown value
+R14=0x0000000040995840 is an unknown value
+R15=0x0000000000000000 is an unknown value
+
+
+Stack: [0x00007f2ec5a9e000,0x00007f2ec5b9f000],  sp=0x00007f2ec5b9c6a8,  free space=1017k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
