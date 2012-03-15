@@ -19,7 +19,6 @@ import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 
 public class PixmapTest implements ApplicationListener{
@@ -68,10 +67,12 @@ public class PixmapTest implements ApplicationListener{
 		Pixmap.setFilter(Filter.NearestNeighbour);
 		pixmap = new Pixmap(1024, 512, Pixmap.Format.RGBA8888);
 		texture = new Texture(pixmap);
+		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		texture.draw(pixmap, 0, 0);
 		texture.bind();
 		
 		plane = new Texture(Gdx.files.internal("data/badlogicsmall.jpg"));
+		
 		
 		background = new Texture(Gdx.files.internal("data/stones.jpg"));
 		rateX = SCREEN_WIDTH/background.getWidth();
@@ -100,6 +101,7 @@ public class PixmapTest implements ApplicationListener{
 	public void render() {
 		Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+//		Gdx.gl.glEnable(GL10.GL_LINE_SMOOTH);
 		texture.draw(pixmap, 0, 0);
 		
 		batch.begin();

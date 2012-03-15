@@ -48,6 +48,13 @@ public class LineDrawingTest implements ApplicationListener {
 		// clear screen
 		Gdx.gl.glClearColor(0.5f, 0.5f, 0.5f, 0.5f);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		
+//		Gdx.gl.glEnable (GL10.GL_LINE_SMOOTH);
+		Gdx.gl.glEnable(GL10.GL_BLEND);
+		Gdx.gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+//		Gdx.gl.glHint (GL10.GL_LINE_SMOOTH_HINT, GL10.GL_NICEST);
+		Gdx.gl.glLineWidth (3f);
+
 
 		// update the camera (not necessary as we don't change its properties)
 		// and apply the projection and modelview matrix.
@@ -67,15 +74,20 @@ public class LineDrawingTest implements ApplicationListener {
 
 			// add the new vertex only if it's 1) the first vertex or 2)
 			// it is farther away than 10 units from the last added vertex.
-			if (vertexIndex == 0 || unprojectedVertex.dst(lineVertices[vertexIndex - 2], lineVertices[vertexIndex - 1], 0) > 10) {
+			if (vertexIndex == 0 || unprojectedVertex.dst(lineVertices[vertexIndex - 2], lineVertices[vertexIndex - 1], 0) > 5) {
 				lineVertices[vertexIndex++] = unprojectedVertex.x;
 				lineVertices[vertexIndex++] = unprojectedVertex.y;
 				lineMesh.setVertices(lineVertices, 0, vertexIndex);
+				
 			}
 		} else {
 			// else we reset the vertexIndex to 0 so that no line is drawn any longer
 			// and the user can draw a new line
 			vertexIndex = 0;
+		}
+		
+		for(int i = 0;i < lineVertices.length;i++){
+			
 		}
 	}
 
