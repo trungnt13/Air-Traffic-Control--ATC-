@@ -49,10 +49,10 @@ public class LineDrawingTest implements ApplicationListener {
 		Gdx.gl.glClearColor(0.5f, 0.5f, 0.5f, 0.5f);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
-//		Gdx.gl.glEnable (GL10.GL_LINE_SMOOTH);
+		Gdx.gl.glEnable (GL10.GL_LINE_SMOOTH);
 		Gdx.gl.glEnable(GL10.GL_BLEND);
 		Gdx.gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
-//		Gdx.gl.glHint (GL10.GL_LINE_SMOOTH_HINT, GL10.GL_NICEST);
+		Gdx.gl.glHint (GL10.GL_LINE_SMOOTH_HINT, GL10.GL_NICEST);
 		Gdx.gl.glLineWidth (3f);
 
 

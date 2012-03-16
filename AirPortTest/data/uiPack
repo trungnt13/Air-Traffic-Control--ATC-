@@ -1,0 +1,33 @@
+
+ui.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blend
+ rotate: false
+ xy: 0, 0
+ size: 64, 32
+ orig: 64, 32
+ offset: 0, 0
+ index: 0
+rotate
+ rotate: false
+ xy: 64, 0
+ size: 64, 32
+ orig: 64, 32
+ offset: 0, 0
+ index: 0
+scale
+ rotate: false
+ xy: 64, 32
+ size: 64, 32
+ orig: 64, 32
+ offset: 0, 0
+ index: 0
+button
+ rotate: false
+ xy: 0, 96
+ size: 64, 32
+ orig: 64, 32
+ offset: 0, 0
+ index: 0
