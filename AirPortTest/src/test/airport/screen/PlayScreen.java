@@ -3,6 +3,7 @@ package test.airport.screen;
 import test.airport.context.Art;
 import test.airport.context.MyInput;
 import test.airport.context.R;
+import test.airport.utils.Button;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
@@ -15,8 +16,12 @@ public class PlayScreen extends GameScreen{
 	Vector2 pos;
 	Vector2 speed;
 	
+	Button b = new Button();
 	
 	MyInput input;
+	
+	
+	
 	public PlayScreen(StartScreen parent) {
 		this.parent = parent;
 	}
@@ -29,6 +34,8 @@ public class PlayScreen extends GameScreen{
 		
 		batch.enableBlending();
 		batch.setBlendFunction(GL11.GL_SRC0_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+		
+		
 	}
 	
 	@Override
@@ -44,6 +51,7 @@ public class PlayScreen extends GameScreen{
 		batch.draw(Art.plane, pos.x, pos.y);
 		batch.draw(Art.back,getWidth()/2 - Art.back.getRegionWidth()/2,
 							getHeight()/2 - Art.back.getRegionHeight()/2);
+
 		batch.end();
 	}
 
@@ -63,11 +71,10 @@ public class PlayScreen extends GameScreen{
 		
 		if(input.justDown){
 			if(input.getX() >= getWidth()/2 - Art.back.getRegionWidth()/2 && 
-			   input.getX() <= getWidth()/2 - Art.back.getRegionWidth()/2 + Art.back.getRegionWidth() &&
+			   input.getX() <= getWidth()/2 + Art.back.getRegionWidth()/2 &&
 			   input.getY() >= getHeight()/2 - Art.back.getRegionHeight()/2 &&
-			   input.getY() <= getHeight()/2 - Art.back.getRegionHeight()/2 + Art.back.getRegionHeight()){
-				setScreen(parent);
-				Gdx.app.log("exit", "Back to menu");
+			   input.getY() <= getHeight()/2  + Art.back.getRegionHeight()/2){
+				setScreen(new DerivativeScreen());
 			}
 		}
 	}
@@ -95,4 +102,6 @@ public class PlayScreen extends GameScreen{
 		// TODO Auto-generated method stub
 		
 	}
+	
+
 }
