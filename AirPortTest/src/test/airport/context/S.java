@@ -19,5 +19,17 @@ public class S {
 		public static final byte Triple = 3;
 		public static final byte Abs = 4;
 		public static final byte Line = 5;
+		public static final byte Trigonometric1  = 6;
+	}
+	
+	public static final class mode{
+		public static final byte FreeMode = 1;
+		public static final byte PathMode = 2;
+	}
+	
+	public static final class pconfig{
+		public static final byte GO_TO = 1;
+		public static final byte ORBIT_MOVE = 2;
+		public static final byte AVOID = 3;
 	}
 }

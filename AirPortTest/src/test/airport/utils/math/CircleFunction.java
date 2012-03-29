@@ -1,8 +1,5 @@
 package test.airport.utils.math;
 
-import test.airport.context.S;
-
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 
 public class CircleFunction extends Function{
@@ -29,12 +26,16 @@ public class CircleFunction extends Function{
 	
 	@Override
 	public double getFactor(double x) {
+		if(x == 0)
+			x += 0.000000001;
 		double tan = derivative(x);
 		return  Math.atan(tan);
 	}
 
 	@Override
 	public double derivative(double x) {
+		if(x == 0)
+			x += 0.000000001;
 		double h = x * MIN;
 		return (f(x+h) - f(x-h))/(2*h) ;
 	}

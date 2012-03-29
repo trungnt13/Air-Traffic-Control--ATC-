@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.4">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>630</x>
+      <y>40</y>
+      <w>340</w>
+      <h>430</h>
+    </coordinates>
+    <panel_attributes>
+ViewGroup
+----------------------------------------------------------------------------
+final List children
+final List immutableChildren
+final List groups
+final List immutableGroups
+View lastTOuchChild
+View focusView[20]
+View keyboardFocusView
+View scrollFocusActor
+
+---------------------------------------------------------------------------
+public Group()
+public Group(name)
+public Group(name,id)
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Interface</type>
+    <coordinates>
+      <x>440</x>
+      <y>300</y>
+      <w>120</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>onClickListener
+--
+onClick(View v)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>210</x>
+      <y>280</y>
+      <w>310</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;290;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>40</y>
+      <w>340</w>
+      <h>430</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+/View/
+----------------------------------------------------------------------------
+int id
+float x
+float y
+float width
+float height
+float originX
+float originY
+float scaleX = 1
+float scaleY = 1
+float rotation
+boolean visible
+boolean enable
+onClickListener listener
+---------------------------------------------------------------------------
+public Actor(name)
+public Actor(name,id)
+public void bindTo(ViewGroup)
+public abstract boolean touchDown(x,y);
+public abstract boolean touchUp(x,y);
+public abstract boolean touchDragged(x,y);
+public void setVisible(boolean)
+public boolean isVisible()
+public void setEnable(boolean)
+public boolean isEnable()
+public void setOnClickListener(Listener)
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>310</x>
+      <y>0</y>
+      <w>340</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>30;50;320;50</additional_attributes>
+  </element>
+</diagram>

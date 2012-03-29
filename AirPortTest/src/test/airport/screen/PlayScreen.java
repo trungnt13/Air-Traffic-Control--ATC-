@@ -74,7 +74,7 @@ public class PlayScreen extends GameScreen{
 			   input.getX() <= getWidth()/2 + Art.back.getRegionWidth()/2 &&
 			   input.getY() >= getHeight()/2 - Art.back.getRegionHeight()/2 &&
 			   input.getY() <= getHeight()/2  + Art.back.getRegionHeight()/2){
-				setScreen(new DerivativeScreen());
+				setScreen(new GoAroundScreen());
 			}
 		}
 	}

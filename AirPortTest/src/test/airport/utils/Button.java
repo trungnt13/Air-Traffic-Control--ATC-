@@ -7,7 +7,7 @@ public class Button extends View{
 	TextureRegion upRegion;
 	TextureRegion downRegion;
 	
-	public Button(){
+	public Button(){	
 		
 	}
 	

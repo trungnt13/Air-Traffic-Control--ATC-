@@ -6,7 +6,6 @@ import java.util.List;
 import test.airport.utils.math.AttributeSet;
 import test.airport.utils.math.CircleFunction;
 import test.airport.utils.math.Function;
-import test.airport.utils.math.QuadricFunction;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -83,8 +82,8 @@ public class DerivativeScreen extends GameScreen{
 		
 		speed = 3;
 		
-		func = new QuadricFunction(new AttributeSet(new float[]{-0.001f,0.01f,0}));
-//		func = new CircleFunction(new AttributeSet(new float[]{300,300,200}));
+//		func = new QuadricFunction(new AttributeSet(new float[]{-0.001f,0.01f,0}));
+		func = new CircleFunction(new AttributeSet(new float[]{300,300,200}));
 	}
 	
 	@Override
@@ -121,7 +120,8 @@ public class DerivativeScreen extends GameScreen{
 		
 		angle = func.getFactor(x);
 		
-		Gdx.app.log("test", "" + x + " " + func.f(x) + " " +  func.derivative(x));
+		Gdx.app.log("test", " "+  Math.toDegrees(getFactor1(400)) + " " + 
+							      Math.toDegrees(getFactor(400)));
 		
 		sprite.translate((float) Math.cos(angle) * speed, 
 						 (float) Math.sin(angle) * speed);

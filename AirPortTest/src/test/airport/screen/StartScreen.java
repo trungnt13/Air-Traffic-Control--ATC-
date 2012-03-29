@@ -71,7 +71,7 @@ public class StartScreen extends GameScreen {
 			   input.getX() <= posStart.x + Art.startRegion.getRegionWidth() &&
 			   input.getY() >= posStart.y &&
 			   input.getY() <= posStart.y + Art.startRegion.getRegionHeight()){
-			   setScreen(new PlayScreen(this));
+			   setScreen(new TestingScreen());
 
 				Gdx.app.log("Start", "" );
 			}

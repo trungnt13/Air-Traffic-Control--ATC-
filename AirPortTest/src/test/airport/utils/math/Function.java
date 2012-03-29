@@ -3,9 +3,8 @@ package test.airport.utils.math;
 import test.airport.context.S;
 
 public abstract class Function {
-	byte NAME;
-	byte MODE = S.direction.SLIENT;
-	static double MIN = 1e-8;
+
+	static final double MIN = 1e-8;
 	AttributeSet set;
 	
 	public Function(AttributeSet attributes){

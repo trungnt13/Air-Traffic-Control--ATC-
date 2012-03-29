@@ -4,7 +4,9 @@ public class QuadricFunction extends Function{
 	float a;
 	float b;
 	float c;
-	float speed;
+	float angle;
+	
+	boolean mode_loop = false;
 	
 	public QuadricFunction(AttributeSet attributes) {
 		super(attributes);
@@ -20,17 +22,17 @@ public class QuadricFunction extends Function{
 		this.c = attr.attr[2];
 	}
 	
-	public void setSpeed(float speed){
-		this.speed = speed;
-	}
-	
 	@Override
 	public double getFactor(double x) {
+		if(x == 0)
+			x += 0.000000001;
 		return Math.atan(derivative(x));
 	}
 
 	@Override
 	public double derivative(double x) {
+		if(x == 0)
+			x += 0.000000001;
 		double h = x * MIN;
 		return (f(x+h)-f(x-h)) / (2*h);
 	}
@@ -42,7 +44,6 @@ public class QuadricFunction extends Function{
 
 	@Override
 	public double f1(double x) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
