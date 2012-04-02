@@ -8,15 +8,15 @@ public class QuadricFunction extends Function{
 	
 	boolean mode_loop = false;
 	
-	public QuadricFunction(AttributeSet attributes) {
+	public QuadricFunction(FunctionSet attributes) {
 		super(attributes);
 	}
 
-	public void setAttributes(AttributeSet attr){
+	public void setAttributes(FunctionSet attr){
 		if(attr.size() >= 3)
 			this.set = attr;
 		else 
-			this.set = new AttributeSet(new float[3]);
+			this.set = new FunctionSet(new float[3]);
 		this.a = attr.attr[0];
 		this.b = attr.attr[1];
 		this.c = attr.attr[2];

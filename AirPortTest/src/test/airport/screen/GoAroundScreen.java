@@ -2,9 +2,14 @@ package test.airport.screen;
 
 import java.util.Queue;
 
+import test.airport.context.MyInput;
+import test.airport.context.R;
+import test.airport.graphics.Layout;
 import test.airport.utils.eMath;
+import test.easy.admin.eAdmin;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -29,15 +34,18 @@ public class GoAroundScreen extends GameScreen{
 	
 	Vector2 curPos;
 	
+	Color color;
+	
+	MyInput input;
 	@Override
-	public void render(float delta) {
+	public void onRender(float delta) {
 //		angle += Gdx.graphics.getDeltaTime();
 //		curPos.x = (float) (200*Math.cos(angle)+ center.x);
 //		curPos.y = (float) (200*Math.sin(angle)+ center.y);
 //		sprite.setPosition(curPos.x, curPos.y);
 
 		SPEED = 30*Gdx.graphics.getDeltaTime();
-		
+		input = (MyInput)eAdmin.einput.findInputByID(R.input.MyInput);
 		batch.begin();
 		sprite.draw(batch);
 		batch.end();
@@ -61,8 +69,9 @@ public class GoAroundScreen extends GameScreen{
 	
 	@Override
 	public void update(float delta) {
-		// TODO Auto-generated method stub
-		
+		if(input.isDragging){
+			sprite.setColor(color);
+		}
 	}
 
 	@Override
@@ -102,6 +111,14 @@ public class GoAroundScreen extends GameScreen{
 		
 		radius = 200;
 		angle = 0;
+		color = sprite.getColor();
+		sprite.setColor(Color.CLEAR);
+	}
+
+	@Override
+	public Layout onCreateLayout() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

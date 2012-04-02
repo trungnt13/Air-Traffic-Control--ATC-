@@ -1,9 +1,9 @@
 package test.airport.context;
 
 
-import com.badlogic.gdx.InputProcessor;
 
-public class MyInput implements InputProcessor{
+
+public class MyInput extends InputProcessor{
 	static int X;
 	static int Y;
 	
@@ -18,7 +18,8 @@ public class MyInput implements InputProcessor{
 	public boolean justDown;
 	
 	
-	public MyInput(){
+	public MyInput(int id){
+		super(id);
 		justUp = true;
 		isDragging = false;
 		justDown = false;

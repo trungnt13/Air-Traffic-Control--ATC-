@@ -1,5 +1,7 @@
 package test.airport.screen;
 
+import test.airport.graphics.Layout;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 
@@ -11,7 +13,7 @@ public class TestingScreen extends GameScreen{
 	}
 
 	@Override
-	public void render(float delta) {
+	public void onRender(float delta) {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 	}
 
@@ -36,6 +38,12 @@ public class TestingScreen extends GameScreen{
 	@Override
 	public void resume() {
 		
+	}
+
+	@Override
+	public Layout onCreateLayout() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

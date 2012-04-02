@@ -3,6 +3,8 @@ package test.airport.screen;
 import test.airport.context.Art;
 import test.airport.context.MyInput;
 import test.airport.context.R;
+import test.airport.graphics.Layout;
+import test.easy.admin.eAdmin;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
@@ -21,7 +23,7 @@ public class StartScreen extends GameScreen {
 	
 	@Override
 	public void onLoadResource() {
-		input = (MyInput) getInputProcessor(R.input.MyInput);
+		input = (MyInput) eAdmin.einput.findInputByID(R.input.MyInput);
 		
 		posStart = new Vector2(getWidth()/2-Art.startRegion.getRegionWidth()/2, 
 				   		 	   getHeight()/3-Art.startRegion.getRegionHeight()/2);
@@ -31,7 +33,7 @@ public class StartScreen extends GameScreen {
 	}
 	
 	@Override
-	public void render(float delta) {
+	public void onRender(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
@@ -39,11 +41,13 @@ public class StartScreen extends GameScreen {
 		batch.draw(Art.startRegion, posStart.x, posStart.y);
 		batch.draw(Art.exitRegion,posExit.x,posExit.y);
 		batch.end();
+	
+		Gdx.app.log("test", "test" + input.getX() + " "+ input.getY()
+							+ " " + posStart.x + " " + posStart.y);
 	}
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -71,7 +75,7 @@ public class StartScreen extends GameScreen {
 			   input.getX() <= posStart.x + Art.startRegion.getRegionWidth() &&
 			   input.getY() >= posStart.y &&
 			   input.getY() <= posStart.y + Art.startRegion.getRegionHeight()){
-			   setScreen(new TestingScreen());
+			   setScreen(new PlayScreen(this));
 
 				Gdx.app.log("Start", "" );
 			}
@@ -84,6 +88,12 @@ public class StartScreen extends GameScreen {
 			}
 		
 		}
+	}
+
+	@Override
+	public Layout onCreateLayout() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

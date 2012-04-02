@@ -2,6 +2,8 @@ package test.airport.gamecore;
 
 import test.airport.context.AdvanceMultiplexer;
 import test.airport.screen.Screen;
+import test.easy.admin.eAdmin;
+import test.easy.admin.eMultiplexer;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -9,15 +11,14 @@ import com.badlogic.gdx.InputProcessor;
 
 public abstract class GameCore implements ApplicationListener{
 	protected Screen screen;
-	protected AdvanceMultiplexer multiInput;
 	
 	protected static int SCREEN_WIDTH;
 	protected static int SCREEN_HEIGHT;
 	
 	@Override
 	public void create() {
-		multiInput = new AdvanceMultiplexer();
-		Gdx.input.setInputProcessor(multiInput);
+		eAdmin.einput = new eMultiplexer();
+		Gdx.input.setInputProcessor(eAdmin.einput);
 		
 		SCREEN_WIDTH = Gdx.graphics.getWidth();
 		SCREEN_HEIGHT = Gdx.graphics.getHeight();
@@ -29,7 +30,7 @@ public abstract class GameCore implements ApplicationListener{
 	 */
 	protected abstract void onGameCreate();
 
-
+	
 	@Override
 	public void resize(int width, int height) {
 		SCREEN_WIDTH = width;
@@ -110,15 +111,7 @@ public abstract class GameCore implements ApplicationListener{
 	public Screen getScreen(){
 		return screen;
 	}
-	
-	public AdvanceMultiplexer getMultiplexer(){
-		return this.multiInput;
-	}
-	
-	public void addInputProcessor(InputProcessor input,int ID){
-		this.multiInput.addProcessor(ID, input);
-	}
-	
+		
 	public int getWidth(){
 		return this.SCREEN_WIDTH;
 	}

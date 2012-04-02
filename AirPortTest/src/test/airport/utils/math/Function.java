@@ -1,18 +1,17 @@
 package test.airport.utils.math;
 
-import test.airport.context.S;
 
 public abstract class Function {
 
 	static final double MIN = 1e-8;
-	AttributeSet set;
+	FunctionSet set;
 	
-	public Function(AttributeSet attributes){
+	public Function(FunctionSet attributes){
 		setAttributes(attributes);
 	}
 	
 	
-	public abstract void setAttributes(AttributeSet attr);
+	public abstract void setAttributes(FunctionSet attr);
 	
 	public abstract double getFactor(double x);
 	

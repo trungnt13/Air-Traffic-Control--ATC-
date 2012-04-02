@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteCache;
 
 public class SpriteTest implements ApplicationListener {
-	static final int SPRITES = 100000;
+	static final int SPRITES = 20000;
 	Texture image;
 	Texture image2;
 	Sprite[] sprites;	

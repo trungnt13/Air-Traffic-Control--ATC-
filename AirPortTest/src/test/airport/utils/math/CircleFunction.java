@@ -7,16 +7,16 @@ public class CircleFunction extends Function{
 	Vector2 center ;
 	float radius;
 	
-	public CircleFunction(AttributeSet attributes) {
+	public CircleFunction(FunctionSet attributes) {
 		super(attributes);
 	}
 	
 	@Override
-	public void setAttributes(AttributeSet attr) {
+	public void setAttributes(FunctionSet attr) {
 		if(attr.size() >= 3 )
 			this.set = attr;
 		else 
-			set = new AttributeSet(new float[]{0,0,0} );
+			set = new FunctionSet(new float[]{0,0,0} );
 		center = new Vector2();
 		center.x = set.attr[0];
 		center.y = set.attr[1];

@@ -3,6 +3,7 @@ package test.airport.screen;
 import java.util.ArrayList;
 import java.util.List;
 
+import test.airport.graphics.Layout;
 import test.airport.utils.eMath;
 
 import com.badlogic.gdx.Gdx;
@@ -95,7 +96,7 @@ public class TileMapScreen extends GameScreen{
 	}
 	
 	@Override
-	public void render(float delta) {
+	public void onRender(float delta) {
 		
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
@@ -169,5 +170,11 @@ public class TileMapScreen extends GameScreen{
 	
 	public float getYinCircle1(float x,Vector2 center,float radius){
 		return (float) (-Math.sqrt(radius*radius - Math.pow((x - center.x),2))) + center.y;
+	}
+
+	@Override
+	public Layout onCreateLayout() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

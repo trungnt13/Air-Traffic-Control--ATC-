@@ -4,16 +4,16 @@ public class TrigonometricFunction1 extends Function{
 	float a;
 	float b;
 	
-	public TrigonometricFunction1(AttributeSet attributes) {
+	public TrigonometricFunction1(FunctionSet attributes) {
 		super(attributes);
 	}
 
 	@Override
-	public void setAttributes(AttributeSet attr) {
+	public void setAttributes(FunctionSet attr) {
 		if(attr.size() >= 2)
 			this.set = attr;
 		else 
-			set = new AttributeSet(new float[2]);
+			set = new FunctionSet(new float[2]);
 		a = set.attr[0];
 		b = set.attr[1];
 	}

@@ -3,7 +3,8 @@ package test.airport.screen;
 import java.util.ArrayList;
 import java.util.List;
 
-import test.airport.utils.math.AttributeSet;
+import test.airport.graphics.Layout;
+import test.airport.utils.math.FunctionSet;
 import test.airport.utils.math.CircleFunction;
 import test.airport.utils.math.Function;
 
@@ -83,11 +84,11 @@ public class DerivativeScreen extends GameScreen{
 		speed = 3;
 		
 //		func = new QuadricFunction(new AttributeSet(new float[]{-0.001f,0.01f,0}));
-		func = new CircleFunction(new AttributeSet(new float[]{300,300,200}));
+		func = new CircleFunction(new FunctionSet(new float[]{300,300,200}));
 	}
 	
 	@Override
-	public void render(float delta) {
+	public void onRender(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		float elapsed = Gdx.graphics.getDeltaTime();
@@ -202,5 +203,11 @@ public class DerivativeScreen extends GameScreen{
 	
 	public float getYinCircle1(float x,Vector2 center,float radius){
 		return (float) (-Math.sqrt(radius*radius - Math.pow((x - center.x),2))) + center.y;
+	}
+
+	@Override
+	public Layout onCreateLayout() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

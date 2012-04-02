@@ -64,7 +64,7 @@ public class BitmapFontTest implements ApplicationListener {
 		String text = "Sphinx of black quartz,\njudge my vow.";
 		cache2.setColor(Color.RED);
 		cache2.setMultiLineText(text, 5, 300);
-
+		
 		text = "How quickly\ndaft jumping zebras vex.";
 		cache3.setColor(Color.BLUE);
 		cache3.setMultiLineText(text, 5, 200, 470, HAlignment.CENTER);
@@ -79,14 +79,14 @@ public class BitmapFontTest implements ApplicationListener {
 
 	@Override public void render () {
 		red.a = (red.a + Gdx.graphics.getDeltaTime() * 0.1f) % 1;
-
+		
 		GL10 gl = Gdx.graphics.getGL10();
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		spriteBatch.begin();
-		logoSprite.draw(spriteBatch);
+//		logoSprite.draw(spriteBatch);
 		switch (renderMode) {
 		case 0:
-			font.setScale(1);
+			font.setScale(0.5f);
 			renderNormal("normal");
 			break;
 		case 1:

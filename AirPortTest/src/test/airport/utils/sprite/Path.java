@@ -1,7 +1,7 @@
 package test.airport.utils.sprite;
 
 import test.airport.context.S;
-import test.airport.utils.math.AttributeSet;
+import test.airport.utils.math.FunctionSet;
 import test.airport.utils.math.CircleFunction;
 import test.airport.utils.math.Function;
 import test.airport.utils.math.QuadricFunction;
